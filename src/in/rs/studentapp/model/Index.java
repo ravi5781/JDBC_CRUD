@@ -24,7 +24,7 @@ public class Index {
 			case 2:Login.login();
 				break;
 
-			case 3:// Password.forgot();
+			case 3:Password.forgot();
 				break;
 
 			case 4:

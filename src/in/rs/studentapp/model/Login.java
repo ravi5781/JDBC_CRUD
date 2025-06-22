@@ -33,7 +33,7 @@ public class Login {
 					System.out.println(s);
 					break;
 				case 2:
-//					Update.update(s);
+					Update.update(s);
 					break;
 				case 3: // logic for Search user
 					break;
