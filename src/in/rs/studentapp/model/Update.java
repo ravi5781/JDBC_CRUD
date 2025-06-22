@@ -2,10 +2,11 @@ package in.rs.studentapp.model;
 import in.rs.studentapp.dao.StudentDAO;
 import in.rs.studentapp.dao.StudentImp;
 import in.rs.studentapp.dto.Student;
+import java.util.Scanner;
 public class Update {
 	public static void update(Student s) {
 		 Scanner sc=new Scanner(System.in);
-		 StudentDAO sdao=new StudentDAOImpl();
+		 StudentDAO sdao=new StudentImp();
 		 int in=0;
 		 boolean status=false;
 		 do {
@@ -36,4 +37,15 @@ public class Update {
 			 case 6: System.out.println("loading...");
 			 break;
 			 default:System.out.println("Enter the valid option:");
+			 break;
+			 }
+			 status=sdao.updateStudent(s);
+			 if(status) {
+			 System.out.println("Data updated successfully");
+			 }else {
+			 System.out.println("Failed to update the data");
+			 }
+			 }
+			 while(in!=6);
+			}
 }
