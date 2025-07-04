@@ -1,57 +1,46 @@
 package in.rs.studentapp.model;
 
 import java.util.Scanner;
-
 import in.rs.studentapp.dao.StudentDAO;
 import in.rs.studentapp.dao.StudentImp;
 import in.rs.studentapp.dto.Student;
 
 public class Signup {
 	public static void signup() {
-		StudentDAO sdao=new StudentImp();
 		Scanner sc = new Scanner(System.in);
-
-		// creation of pojo class object
-		Student s = new Student();
+		Student s = new Student();// creation of POJO class object
+		StudentDAO sdao = new StudentImp();
 
 		// collecting the data from the user
-		System.out.println("<--------  Welcome to Signup Page   -------->");
-		System.out.println("Enter name: ");
+		System.out.println("<--Welcome to Signup Page-->");
+		System.out.println("Enter the name:");
+		// String name=sc.next();
+		// s.setName(name);
 		s.setName(sc.next());
-
-		System.out.println("Enter Phone: ");
+		System.out.println("Enter the Phone number");
 		s.setPhone(sc.nextLong());
-
-		System.out.println("Enter Email: ");
+		System.out.println("Enter the Mail ID");
 		s.setMail(sc.next());
-
-		System.out.println("Enter Branch: ");
+		System.out.println("Enter the Branch");
 		s.setBranch(sc.next());
-
-		System.out.println("Enter Location: ");
+		System.out.println("Enter the Location");
 		s.setLoc(sc.next());
-
-		System.out.println("Enter Password: ");
+		System.out.println("Set a new Password");
 		String password = sc.next();
-
-		System.out.println("Enter Confirm Password: ");
+		System.out.println("Confirm the password");
 		String confirmPassword = sc.next();
 
 		if (password.equals(confirmPassword)) {
 			s.setPassword(confirmPassword);
-			
-			boolean status=sdao.insertStudent(s);
-			 if(status) {
-			 System.out.println("Data added successfully!");
-			 }
-			 else {
-			 System.out.println("Failed to add the data");
-			 }
-			
+			boolean res = sdao.insertStudent(s);
+			if (res) {
+				System.out.println("Data added successfully");
+			} else {
+				System.out.println("Failed to add the data");
+			}
 		} else {
-			System.out.println("Password Mismatch. Try again.");
+			System.out.println("Password mismatch!");
 		}
-sc.close();
+		sc.close();
 	}
-
 }

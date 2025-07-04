@@ -1,8 +1,7 @@
 package in.rs.studentapp.dao;
 
-import in.rs.studentapp.dto.Student;
 import java.util.ArrayList;
-
+import in.rs.studentapp.dto.Student;
 
 public interface StudentDAO {
 	public boolean insertStudent(Student s);
@@ -16,4 +15,6 @@ public interface StudentDAO {
 	public Student getStudent(long phone, String mail);
 
 	public ArrayList<Student> getStudent();
+
+	public ArrayList<Student> getStudent(String name);
 }
